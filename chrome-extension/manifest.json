@@ -1,0 +1,56 @@
+{
+    "manifest_version": 2,
+
+    "name": "applied",
+    "description": "captures job application url and keeps track of them to avoid applying to same job again",
+    "version": "1.0",
+    "icons":
+    {
+        "128": "icon128.png",
+        "48": "icon48.png",
+        "16": "icon16.png"
+    },
+
+    "page_action":
+    {
+        "default_icon": "icon16.png",
+        "default_popup": "popup.html",
+        "default_title": "Application Tracker"
+    },
+
+    "background":
+    {
+        "scripts": ["background.js", "jquery-3.3.1.min.js"],
+        "persistent": false
+    },
+    "options_ui":
+    {
+        "page": "popup.html",
+        "chrome_style": true,
+        "open_in_tab": true
+    },
+    /**
+    - can change DOM
+    - runs in the context of the web page
+    - exchange message between background scripts and popup scripts
+    **/
+    "content_scripts": [
+    {
+        "matches": ["https://twitter.com/"],
+        "js": ["jquery-3.3.1.min.js", "cs_job_tracker.js"]
+    }],
+
+    // "content_security_policy": "http:localhost:3000",
+    // "content_security_policy": "script-src 'self' http://metallica.cse.buffalo.edu; object-src 'self'",
+
+    "permissions": [
+        "tabs",
+        "activeTab",
+        "https://twitter.com/",
+        "http://localhost:8000/*",
+        "https://apis.google.com/*",
+        "https://www.googleapis.com/*",
+        "storage",
+        "alarms"
+    ]
+}
