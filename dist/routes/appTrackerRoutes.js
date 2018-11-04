@@ -1,12 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+const appTrackerController_1 = require("../controllers/appTrackerController");
 class Routes {
+    constructor() {
+        this.appTrackerController = new appTrackerController_1.AppTrackerController();
+    }
     routes(app) {
-        app.route('/isapplied').get((req, res) => {
-            res.status(200).send({
-                message: 'Checking if job is already applied'
-            });
-        });
+        // check if already applied to this position
+        app.route('/isapplied').get(this.appTrackerController.getApplication);
+        // insert entry for applied position
+        app.route('/insertApplied').post(this.appTrackerController.addNewApplication);
     }
 }
 exports.Routes = Routes;

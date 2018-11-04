@@ -2,7 +2,7 @@
   "name": "applied",
   "version": "1.0.0",
   "description": "a chrome extension to keep track of job application",
-  "main": "app.js",
+  "main": "./src/app.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
