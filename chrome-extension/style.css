@@ -1,0 +1,9 @@
+#container{
+	width: 500px;
+	height: auto;
+	padding: 15px;
+}
+
+#trackButton{
+	margin-right: 15px
+}

@@ -12,7 +12,10 @@ const generateHash = function (url) {
 };
 class AppTrackerController {
     addNewApplication(req, res) {
+        console.log("received new application insert request...");
         const hash = generateHash(req.body.url);
+        console.log(req.body.url);
+        console.log(hash);
         const data = {
             applicationURL: req.body.url,
             hashId: hash
@@ -26,7 +29,10 @@ class AppTrackerController {
         });
     }
     getApplication(req, res) {
+        console.log("received check if already applied request...");
         const hash = generateHash(req.query.jobURL);
+        console.log(req.query.jobURL);
+        console.log(hash);
         JobApplication.find({ hashId: hash }, (err, application) => {
             if (err) {
                 res.send(err);

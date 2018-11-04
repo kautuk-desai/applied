@@ -6,14 +6,11 @@
     "version": "1.0",
     "icons":
     {
-        "128": "icon128.png",
-        "48": "icon48.png",
-        "16": "icon16.png"
+        "128": "applyjob.png"
     },
-
     "page_action":
     {
-        "default_icon": "icon16.png",
+        "default_icon": "applyjob.png",
         "default_popup": "popup.html",
         "default_title": "Application Tracker"
     },
@@ -23,12 +20,6 @@
         "scripts": ["background.js", "jquery-3.3.1.min.js"],
         "persistent": false
     },
-    "options_ui":
-    {
-        "page": "popup.html",
-        "chrome_style": true,
-        "open_in_tab": true
-    },
     /**
     - can change DOM
     - runs in the context of the web page
@@ -36,20 +27,18 @@
     **/
     "content_scripts": [
     {
-        "matches": ["https://twitter.com/"],
+        "matches": ["https://boards.greenhouse.io/*", "https://jobs.lever.co/*", "https://*.myworkdayjobs.com/*", "https://hire.withgoogle.com/*"],
         "js": ["jquery-3.3.1.min.js", "cs_job_tracker.js"]
     }],
 
-    // "content_security_policy": "http:localhost:3000",
-    // "content_security_policy": "script-src 'self' http://metallica.cse.buffalo.edu; object-src 'self'",
+    // "content_security_policy": "https:127.0.0.1:3000/",
+    // "content_security_policy": "script-src 'self' https://127.0.0.1; object-src 'self'",
 
     "permissions": [
         "tabs",
         "activeTab",
         "https://twitter.com/",
-        "http://localhost:8000/*",
-        "https://apis.google.com/*",
-        "https://www.googleapis.com/*",
+        "https://127.0.0.1:3000/*",
         "storage",
         "alarms"
     ]
