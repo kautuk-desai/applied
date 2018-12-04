@@ -14,6 +14,11 @@ const generateHash = function(url){
 
 export class AppTrackerController{
 
+	public getRoot(req: Request, res: Response) {
+		console.log("received request to root");
+		res.status(200).send('Hello!');
+	}
+
 	public addNewApplication (req: Request, res: Response) {
 		console.log("received new application insert request...");
 		

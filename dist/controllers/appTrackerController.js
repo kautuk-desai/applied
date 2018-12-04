@@ -11,6 +11,10 @@ const generateHash = function (url) {
     return hashid.encodeHex(url_hex);
 };
 class AppTrackerController {
+    getRoot(req, res) {
+        console.log("received request to root");
+        res.status(200).send('Hello!');
+    }
     addNewApplication(req, res) {
         console.log("received new application insert request...");
         const hash = generateHash(req.body.url);

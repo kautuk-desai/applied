@@ -1,6 +1,3 @@
-import {Request, Response} from "express";
-
-
 import { AppTrackerController } from "../controllers/appTrackerController";
 
 
@@ -8,6 +5,8 @@ export class Routes{
 	public appTrackerController: AppTrackerController = new AppTrackerController();
 	
 	public routes(app): void {
+		app.route('/').get(this.appTrackerController.getRoot);
+
 		// check if already applied to this position
 		app.route('/isapplied').get(this.appTrackerController.getApplication);
 

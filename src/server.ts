@@ -2,6 +2,7 @@ import app from "./app";
 import * as https from "https";
 import * as fs from "fs";
 import * as path from "path";
+import * as process from "process";
 const PORT = 3000;
 
 const keyPath = path.join(__dirname, '..', 'config', "server.key");
@@ -12,9 +13,17 @@ const httpsOptions = {
 	cert: fs.readFileSync(certPath)
 };
 
-https.createServer(httpsOptions, app).listen(PORT, () => {
+const server = https.createServer(httpsOptions, app).listen(PORT, () => {
 	console.log('express server listening on ' + PORT);
 });
+
+// process.on('SIGTERM', () => {
+// 	console.info('SIGTERM signal received.');
+// 	console.log('Closing http server.');
+// 	server.close(() => {
+// 		console.log('Http server closed.');
+// 	});
+// });
 
 // app.use(function(req, res, next) {
 //  res.header("Access-Control-Allow-Origin", "*");

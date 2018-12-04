@@ -6,6 +6,7 @@ class Routes {
         this.appTrackerController = new appTrackerController_1.AppTrackerController();
     }
     routes(app) {
+        app.route('/').get(this.appTrackerController.getRoot);
         // check if already applied to this position
         app.route('/isapplied').get(this.appTrackerController.getApplication);
         // insert entry for applied position
