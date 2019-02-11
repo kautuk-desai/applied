@@ -2,10 +2,12 @@ FROM node:current-alpine
 
 WORKDIR /home/app
 
-COPY . .
+COPY ./package* ./
 RUN ls \
-    && npm install \
-    && npm run-script build
+    && npm install
+
+COPY . .
+RUN npm run-script build
 
 EXPOSE 3000
 
