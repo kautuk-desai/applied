@@ -37,7 +37,6 @@
     "permissions": [
         "tabs",
         "activeTab",
-        "https://twitter.com/",
         "https://127.0.0.1:3000/*",
         "storage",
         "alarms"
