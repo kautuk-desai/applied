@@ -1,0 +1,29 @@
+{
+    "jobs-lever":{
+        "posting-api": "https://api.lever.co/v0/postings/",
+        //affirm/814d02e2-7803-4927-83bb-c36d93b32571
+        "fields":{
+            "title": "text",
+            "location":"categories.location",
+            "team" : "categories.team",
+            "job-type": "categories.commitment"
+        }
+    },
+    "boards-greenhouse":{
+        "posting-api" : "https://boards-api.greenhouse.io/v1/",
+        // https://boards-api.greenhouse.io/v1/boards/acquia/jobs/1497954
+        "fields":{
+            "location":"location.name",
+            "title": "title"
+        }
+    },
+    "hire-withgoogle":{
+        "posting-api":"",
+        "fields":{
+            "title": "body > div.bb-jobs-posting__container.ptor-job__ready > div.bb-jobs-posting__header > h1",
+            "team": "div.bb-jobs-posting__container.ptor-job__ready > div.bb-jobs-posting__header li.bb-jobs-posting__job-details-item.ptor-job-view-department",
+            "location": "div.bb-jobs-posting__container.ptor-job__ready > div.bb-jobs-posting__header li.bb-jobs-posting__job-details-item.ptor-job-view-location",
+            "job-type": "div.bb-jobs-posting__container.ptor-job__ready > div.bb-jobs-posting__header li.bb-jobs-posting__job-details-item.ptor-job-view-jobtype-time"
+        }
+    }
+}
